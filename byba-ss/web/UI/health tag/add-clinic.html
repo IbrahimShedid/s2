@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Health Tag</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="dist/css/font-awesome.min.css">
+		<!-- Font -->
+		<link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet"> 
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+		<link rel="stylesheet" href="dist/css/AdminLTE.css">
+		<link rel="shortcut icon" href="dist/img/logo%20slogan2.png">
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>	
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+
+			<!-- Main Header -->
+			<header class="main-header">
+
+				<!-- Logo -->
+				<a href="#" class="logo">
+					<!-- mini logo for sidebar mini 50x50 pixels -->
+					<span class="logo-mini"><img src="dist/img/logo%20slogan2.png"></span>
+					<!-- logo for regular state and mobile devices -->
+					<span class="logo-lg"><img src="dist/img/logo%20slogan.png"></span>
+				</a>
+
+				<!-- Header Navbar -->
+				<nav class="navbar navbar-static-top" role="navigation">
+					<!-- Sidebar toggle button-->
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<!-- Messages: style can be found in dropdown.less-->
+							<li class="dropdown messages-menu">
+								<!-- Menu toggle button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-envelope-o"></i>
+									<span class="label label-success">4</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<!-- inner menu: contains the messages -->
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+													</div>
+													<h4> Support Team <small><i class="fa fa-clock-o"></i> 5 mins</small> </h4>
+													<!-- The message -->
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+										<!-- /.menu -->
+									</li>
+									<li class="footer"><a href="#">See All Messages</a></li>
+								</ul>
+							</li>
+							<!-- /.messages-menu -->
+
+							<!-- Notifications Menu -->
+							<li class="dropdown notifications-menu">
+								<!-- Menu toggle button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-bell-o"></i>
+									<span class="label label-warning">10</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<!-- Inner Menu: contains the notifications -->
+										<ul class="menu">
+											<div class="row">
+												<div class="notify small">
+													<img class="col-sm-4" src="dist/img/avatar2.png">
+													<div class="col-sm-8 details">
+														<p>Masr Lab <span>notify you that </span> ahmed's test is ready now you can see it </p>
+														<span><i class="fa fa-clock-o"></i> 2O minute </span>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="notify small">
+													<img class="col-sm-4" src="dist/img/avatar2.png">
+													<div class="col-sm-8 details">
+														<p>Masr Lab <span>notify you that </span> ahmed's test is ready now you can see it </p>
+														<span><i class="fa fa-clock-o"></i> 2O minute </span>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="notify small">
+													<img class="col-sm-4" src="dist/img/avatar2.png">
+													<div class="col-sm-8 details">
+														<p>Masr Lab <span>notify you that </span> ahmed's test is ready now you can see it </p>
+														<span><i class="fa fa-clock-o"></i> 2O minute </span>
+													</div>
+												</div>
+											</div>
+										</ul>
+									</li>
+									<li class="footer"><a href="notifications.html">View all</a></li>
+								</ul>
+							</li>
+							
+							<!-- Tasks Menu -->
+							<li class="dropdown tasks-menu">
+								<!-- Menu Toggle Button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-flag-o"></i>
+									<span class="label label-danger">9</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">You have 9 tasks</li>
+									<li>
+										<!-- Inner menu: contains the tasks -->
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<h3> Design some buttons <small class="pull-right">20%</small> </h3>
+													<div class="progress xs">
+														<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+															<span class="sr-only">20% Complete</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<!-- end task item -->
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all tasks</a>
+									</li>
+								</ul>
+							</li>
+							
+							<!-- User Account Menu -->
+							<li class="dropdown user user-menu">
+								<!-- Menu Toggle Button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+									<span class="hidden-xs">Ahmed Mohammed</span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+										<p> Alexander Pierce - Surgry Doctor <small>Member since Nov. 2012</small> </p>
+									</li>
+									<!-- Menu Body -->
+									<li class="user-body">
+										<div class="row">
+											<div class="col-xs-6 text-center">
+												<a href="#">Followers</a>
+											</div>
+											<div class="col-xs-6 text-center">
+												<a href="#">Settings</a>
+											</div>
+										</div>
+										<!-- /.row -->
+									</li>
+									<!-- Menu Footer-->
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="index.html" class="btn btn-default btn-flat">Profile</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			
+			
+			<aside class="main-sidebar">
+				
+				<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+					
+					<!-- Sidebar user panel (optional) -->
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p>Ahmed Mohammed</p>
+							<!-- Status -->
+							<a href="#">Surgry Doctor</a>
+						</div>
+					</div>
+
+					<!-- search form (Optional) -->
+					<h4 class="flow"> <i class="fa fa-rss"></i> 123 Followers</h4>
+					<div class="rate"><span>4.5</span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i> <i class="fa fa-star-o"></i> </div>
+					<!-- /.search form -->
+
+					<!-- Sidebar Menu -->
+					<ul class="sidebar-menu">
+						<li class="header">HEADER</li>
+						
+						<li><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
+						
+						<li><a href="#"><i class="fa fa-users"></i> <span>Patients Log</span></a></li>
+						
+						<li class="treeview">
+							<a href="#"><i class="fa fa-user"></i> <span>Profile</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu">
+								<li><a href="index.html">About Me</a></li>
+								<li><a href="#">Billing</a></li>
+								<li><a href="notifications.html">Notifications</a></li>
+							</ul>
+						</li>
+				
+						<li><a href="schedule.html"><i class="fa fa-calendar"></i> <span>Schedule</span></a></li>
+					</ul>
+					<!-- /.sidebar-menu -->
+					
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<section class="content-header">
+					<h1>Add clinic</h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li>Add clinic</li>
+					</ol>
+				</section>
+
+				<!-- Main content -->
+				<section class="content content2">
+					
+					<div class="add-clinic">
+						<div class="clinic">
+							<div class="row">
+								<form class="col-md-8 col-md-offset-2">
+									
+									<h1>Add Clinic</h1>
+
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Governerate</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option class="cairo">القاهرة</option>
+													<option class="alex">الاسكندرية</option>
+													<option class="">الاسماعيلية</option>
+													<option>اسوان</option>
+													<option>اسيوط</option>
+													<option>الاقصر</option>
+													<option>البحر الاحمر</option>
+													<option>البحيرة</option>
+													<option>بنى سويف</option>
+													<option>بورسعيد</option>
+													<option>جنوب سيناء</option>
+													<option>الجيزة</option>
+													<option>الدقهلية</option>
+													<option>دمياط</option>
+													<option>سوهاج</option>
+													<option>السويس</option>
+													<option>الشرقية</option>
+													<option>شمال سيناء</option>
+													<option>الغربية</option>
+													<option>الفيوم</option>
+													<option>القليوبية</option>
+													<option>قنا</option>
+													<option>كفر الشيخ</option>
+													<option>مطروح</option>
+													<option>المنوفية</option>
+													<option>المنيا</option>
+													<option>الوادى الجديد</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الاسكندرية</option>
+													<option>برج العرب</option>
+													<option>برج العرب الجديده</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>لاسماعيلية</option>
+													<option>فايد</option>
+													<option>القنطرة شرق</option>
+													<option>القنطرة غرب</option>
+													<option>التل الكبير</option>
+													<option>ابو صوير المحطة</option>
+													<option>القصاصين الجديدة</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>اسوان</option>
+													<option>اسوان الجديدة</option>
+													<option>دراو</option>
+													<option>كوم امبو</option>
+													<option>نصر النوبه</option>
+													<option>كلابشه</option>
+													<option>ادفو</option>
+													<option>الرديسية</option>
+													<option>البصيلية</option>
+													<option>السباعية</option>
+													<option>ابو سمبل السياحية</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>اسيوط</option>
+													<option>اسيوط الجديدة</option>
+													<option>ديروط</option>
+													<option>منفلوط</option>
+													<option>الفوصية</option>
+													<option>ابنوب</option>
+													<option>ابو تيج</option>
+													<option>الغنايم</option>
+													<option>ساحل سليم</option>
+													<option>البدرى</option>
+													<option>صدفا</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الاقصر</option>
+													<option>الاقصر الجديدة</option>
+													<option>طيبة الجديدة</option>
+													<option>الزينية</option>
+													<option>البياضية</option>
+													<option>القرنة</option>
+													<option>ارمنت</option>
+													<option>الطود</option>
+													<option>اسنا</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الغردقة</option>
+													<option>سفاجا</option>
+													<option>القصير</option>
+													<option>رأس غارب</option>
+													<option>مرسى علم</option>
+													<option>الشلاتين</option>
+													<option>حلايب</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>دمنهور</option>
+													<option>كفر الدوار</option>
+													<option>رشيد</option>
+													<option>ادكو</option>
+													<option>ابو المطامير</option>
+													<option>ابو حمص</option>
+													<option>الدلنجات</option>
+													<option>المحمودية</option>
+													<option>الرحمانية</option>
+													<option>اتياي البارود</option>
+													<option>حوش عيسي</option>
+													<option>شبراخيت</option>
+													<option>كوم حمادة</option>
+													<option>بدر</option>
+													<option>وادى النطرون</option>
+													<option>النوبارية الجديدة</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>بنى سويف</option>
+													<option>بنى سويف الجديدة</option>
+													<option>الواسطى</option>
+													<option>ناصر</option>
+													<option>إهناسيا</option>
+													<option>ببا</option>
+													<option>سمسطا</option>
+													<option>الفشن</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>بورسعيد</option>
+													<option>بورفؤاد</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>طور</option>
+													<option>شرم الشيخ</option>
+													<option>دهب</option>
+													<option>نويبع</option>
+													<option>طابا</option>
+													<option>سانت كاترين</option>
+													<option>ابو رديس</option>
+													<option>ابو زنيمة</option>
+													<option>رأس سدر</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الجيزة</option>
+													<option>السادس من اكتوبر</option>
+													<option>الشيخ زايد</option>
+													<option>الحوامدية</option>
+													<option>البدرشين</option>
+													<option>الصف</option>
+													<option>أطفيح</option>
+													<option>العياط</option>
+													<option>الباويطى</option>
+													<option>منشأه القناطر</option>
+													<option>أوسيم</option>
+													<option>كرداسة</option>
+													<option>أبو النمرس</option>
+													<option>كفر الغطاطى ومنشأة البكارى</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>المنصورة</option>
+													<option>طلخا</option>
+													<option>ميت غمر</option>
+													<option>دكرنس</option>
+													<option>أجا</option>
+													<option>منية النصر</option>
+													<option>السنبلاوين</option>
+													<option>الكردى</option>
+													<option>بنى عبيد</option>
+													<option>المنزلة</option>
+													<option>تمى الامديد</option>
+													<option>الجمالية</option>
+													<option>شربين</option>
+													<option>المطرية</option>
+													<option>بلقاس</option>
+													<option>ميت سلسيل</option>
+													<option>جمصة</option>
+													<option>محلة دمنة</option>
+													<option>نبروه</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>دمياط</option>
+													<option>دمياط الجديدة</option>
+													<option>رأس البر</option>
+													<option>فارسكور</option>
+													<option>كفر سعد</option>
+													<option>الزرقا</option>
+													<option>السرو</option>
+													<option>الروضة</option>
+													<option>كفر البطيخ</option>
+													<option>عزبة البرج</option>
+													<option>ميت ابو غالب</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>سوهاج</option>
+													<option>سوهاج الجديدة</option>
+													<option>أخميم</option>
+													<option>أخميم الجديدة</option>
+													<option>البلينا</option>
+													<option>المراغة</option>
+													<option>المنشأة</option>
+													<option>دار السلام</option>
+													<option>جرجا</option>
+													<option>جهينة الغربية</option>
+													<option>ساقلتة</option>
+													<option>طما</option>
+													<option>طهطا</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>السويس</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الزقازيق</option>
+													<option>العاشر من رمضان</option>
+													<option>منيا القمح</option>
+													<option>بلبيس</option>
+													<option>مشتول السوق</option>
+													<option>القنايات</option>
+													<option>ابو حماد</option>
+													<option>القرين</option>
+													<option>هيها</option>
+													<option>أبو كبير</option>
+													<option>فاقوس</option>
+													<option>الصاحية الجديدة</option>
+													<option>الابراهيميه</option>
+													<option>ديرب نجم</option>
+													<option>كفر صقر</option>
+													<option>الحسينية</option>
+													<option>صان الحجر القبلية</option>
+													<option>منشأة أبو عمر</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>العريش</option>
+													<option>الشيخ زويد</option>
+													<option>رفح</option>
+													<option>بنر العبد</option>
+													<option>الحسنة</option>
+													<option>نخل</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>طنطا</option>
+													<option>المحلة الكبرى</option>
+													<option>كفر الزيات</option>
+													<option>زفتى</option>
+													<option>السنطة</option>
+													<option>قطور</option>
+													<option>بسيون</option>
+													<option>سمنود</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الفيوم </option>
+													<option>الفيوم الجديدة</option>
+													<option>طامبة</option>
+													<option>سنورس</option>
+													<option>إطسا</option>
+													<option>إبشواى</option>
+													<option>يوسف الصديق</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>بنها</option>
+													<option>قليوب</option>
+													<option>شبرا الخيمة</option>
+													<option>القناطر الخيرية</option>
+													<option>الخانكه</option>
+													<option>كفر شكر</option>
+													<option>طوخ</option>
+													<option>قها</option>
+													<option>العبور</option>
+													<option>الخصوص</option>
+													<option>شبين القناطر</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>قنا</option>
+													<option>قنا الجديدة</option>
+													<option>ابو تشت</option>
+													<option>نجع حمادى</option>
+													<option>دشنا</option>
+													<option>الوقف</option>
+													<option>قفط</option>
+													<option>نقادة</option>
+													<option>قوص</option>
+													<option>فرشوط</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>كفر الشيخ</option>
+													<option>فوه</option>
+													<option>دسوق</option>
+													<option>مطوبس</option>
+													<option>بلطيم</option>
+													<option>مصيف بلطيم</option>
+													<option>الحامول</option>
+													<option>بيلا</option>
+													<option>الرياض</option>
+													<option>سيدى سالم</option>
+													<option>قلين</option>
+													<option>سيدى غازى</option>
+													<option>برج البرلس</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>مرسى مطروح</option>
+													<option>الحمام</option>
+													<option>العلمين</option>
+													<option>الضبعة</option>
+													<option>النجيلة</option>
+													<option>سيدى برانى</option>
+													<option>السلوم</option>
+													<option>سيوة</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>شبين الكوم</option>
+													<option>مدينة السادات</option>
+													<option>منوف</option>
+													<option>سرس الليان</option>
+													<option>اشمون</option>
+													<option>الباجور</option>
+													<option>قويسنا</option>
+													<option>بركة السبع</option>
+													<option>تلا</option>
+													<option>الشهداء</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>المنيا</option>
+													<option>المنيا الجديدة</option>
+													<option>العدوة</option>
+													<option>مغاغة</option>
+													<option>بنى مزار</option>
+													<option>مطاى</option>
+													<option>سمالوط</option>
+													<option>المدينة الفكرية</option>
+													<option>ملوى</option>
+													<option>دير مواس</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Area</label>
+
+											<div class="col-sm-7">
+												<select class="form-control">
+													<option>--</option>
+													<option>الخارجة</option>
+													<option>بريس</option>
+													<option>موط</option>
+													<option>الفرافرة</option>
+													<option>بلاط</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Address</label>
+
+											<div class="col-sm-7">
+												<input class="form-control" placeholder="Address" type="text">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Location</label>
+
+											<div class="col-sm-7">
+												<input class="form-control" placeholder="Password" type="text">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Phone</label>
+
+											<div class="col-sm-7">
+												<input class="form-control" placeholder="Phone" type="text">
+											</div>
+											
+											<span class="col-sm-2"><i class="fa fa-plus-square"></i></span>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Examination Fees</label>
+
+											<div class="col-sm-7">
+												<input class="form-control" placeholder="Examination Fees" type="text">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Appointments</label>
+											
+											<div class="col-sm-2">
+												<label class="col-sm-2 control-label">Day</label>
+												<select class="form-control">
+													<option value="am">Saturday</option>
+													<option value="pm">Sunday</option>
+													<option value="pm">Monday</option>
+													<option value="pm">Tuesday</option>
+													<option value="pm">wednesday</option>
+													<option value="pm">Thursday</option>
+													<option value="pm">Friday</option>
+												</select>
+											</div>
+											
+											<div class="col-sm-2">
+												<label class="col-sm-2 control-label">From</label>
+												<input class="form-control" placeholder="time" type="text">
+												<select class="form-control">
+													<option value="am">AM</option>
+													<option value="pm">PM</option>
+												</select>
+											</div>
+											
+											<div class="col-sm-2">
+												<label class="col-sm-2 control-label">To</label>
+												<input class="form-control" placeholder="time" type="text">
+												<select class="form-control">
+													<option value="am">AM</option>
+													<option value="pm">PM</option>
+												</select>
+											</div>
+											
+											<span class="col-sm-2"><i class="fa fa-plus-square"></i></span>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-md-12 butn">
+											<button class="btn btn-danger" type="submit">Add Clinic</button>
+										</div>
+									</div>
+
+								</form>
+							</div>	
+						</div>
+					</div>
+					
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+			
+
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<div class="pull-right hidden-xs"> Anything you want </div>
+				<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+			</footer>
+
+		</div>
+		<!-- ./wrapper -->
+		
+		<!-- REQUIRED JS SCRIPTS -->
+
+		<!-- jQuery 2.2.3 -->
+		<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="dist/js/app.min.js"></script>
+
+	</body>
+</html>

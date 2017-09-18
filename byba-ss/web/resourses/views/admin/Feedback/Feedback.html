@@ -1,0 +1,89 @@
+<!--.........Body container start...........-->
+<div class="container"  ng-controller="FeedbackController">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                <a href="javascript:void(0);" ng-click="sortType = 'fieldName';
+                                            sortReverse = !sortReverse">
+                                    Title
+                                    <span ng-show="sortType == 'fieldName' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'fieldName' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </th>
+                            <th class="text-center">
+                                <a href="javascript:void(0);" ng-click="sortType = 'lookupType';
+                                            sortReverse = !sortReverse">
+                                    Category
+                                    <span ng-show="sortType == 'lookupType' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'lookupType' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </th>
+                            <th class="text-center">
+                                <a href="javascript:void(0);" ng-click="sortType = 'role.hidden';
+                                            sortReverse = !sortReverse">
+                                    Creator
+                                    <span ng-show="sortType == 'role.hidden' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'role.hidden' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </th>
+                            <th class="text-center">
+                                <a href="javascript:void(0);" ng-click="sortType = 'role.read';
+                                            sortReverse = !sortReverse">
+                                    Date of creation
+                                    <span ng-show="sortType == 'role.read' && !sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'role.read' && sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </th>
+                            <th class="text-center">
+                                Open The FeedBack Form
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="feedBack in feedBacks| orderBy:sortType:sortReverse">
+                        <td>{{feedBack.title}}</td>
+                        <td>{{feedBack.category}}</td>
+                        <td>{{feedBack.creator.username}}</td>
+                        <td>
+                        {{feedBack.creationDate}}
+                        <td><a class="btn btn-default btn-block btn-action hd-blue-btn" data-toggle="modal" data-target="#feedback_form" ng-click="BindDataToModel(feedBack)"><i class="fa fa-external-link text-white"></i></a> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="feedback_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <center>
+                        <h4 class="modal-title" id="myModalLabel">Feedback</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4><label class="label label-primary">TITLE :</label></h4>
+                            <h6><div ng-bind="ModelObj.title"></div></h6>
+                        </div>
+                        <div class="col-xs-12">
+                            <h4><label class="label label-primary">description :</label></h4>
+                            <h6><div ng-bind="ModelObj.description"></div></h6>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default hd-blue-btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--.......End Body container..........-->

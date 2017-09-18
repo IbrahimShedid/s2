@@ -1,0 +1,109 @@
+<div ng-include="'resourses/views/admin/Attributes/attributesNavigationBar.html'"></div>
+<div role="tabpanel" class="tab-panel" id="systemFeilds" ng-controller="SystemFeildsController">
+    <form name="SysLokuForm" novalidate>
+        <div class="panel panel-default bottom-zero">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                         <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                       <!--{{choosenAttribute}}-->
+                         <div class="row">
+                            <div class="col-sm-4">
+                                <label for="LookupName"><span class="text-danger">*</span> Lookup Name</label>
+                                <input type="text" name="LookupName" class="form-control" placeholder=" Lookup Name" ng-model="choosenAttribute.attributeName" ng-minlength="2" ng-maxlength="30" required="required">
+                                <div ng-messages="SysLokuForm.LookupName.$error"  role="alert" ng-show="(!SysLokuForm.LookupName.$pristine)">
+                                    <div style="color : #a94442"  ng-message="required">Please Enter Valid Lookup Name.</div>
+                                    <div style="color : #a94442" ng-message="minlength">Lookup Name is too short </div>
+                                    <div style="color : #a94442" ng-message="maxlength">Lookup Name is too long</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="role"><span class="text-danger">*</span>Field Type</label>
+                                    <select ng-model="choosenAttribute.parentObject" name="LookupType" class="form-control minimal" required="required">
+                                        <option value="CallNote">Call Note</option>
+                                        <option value="Project">Project</option>
+                                        <option value="CallProblem">Call Problem</option>
+                                        <option value="ProblemIssue">Problem Issue</option>
+                                        <option value="SiteVisit">Site Visit</option>
+                                    </select>
+                                    <div ng-messages="SysLokuForm.LookupType.$error"  role="alert" ng-show="(!SysLokuForm.LookupType.$pristine)">
+                                        <div ng-message="required">Please Choose Field Type.</div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="role"><span class="text-danger">*</span> Data Type</label>
+                                    <select name="DataType" class="form-control minimal" required="required" ng-model="choosenAttribute.dataType" >
+                                        <option value="Alphanumeric">Alphanumeric</option>
+                                        <option value="Numeric">Numeric</option>
+                                        <option value="DATE">Date</option>
+                                        <option value="DateTimeStamp">Date Time Stamp</option>
+                                    </select>
+                                    <div ng-messages="SysLokuForm.DataType.$error"  role="alert" ng-show="(!SysLokuForm.DataType.$pristine)">
+                                        <div style="color : #a94442" ng-message="required">Please Choose Data Type.</div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="isRequired" ng-model="choosenAttribute.isRequired"/>
+                                        <label for="isRequired">Is Required</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="KBAttribute" ng-model="choosenAttribute.isKbAttribute"/>
+                                        <label for="KBAttribute"> KB Attribute</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>Fields</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+<!--                                    <table>
+                                        <tr ng-repeat="Field in AllSystemFields">
+                                            <td>
+                                                <ul class="custom-list"  >
+                                                    <li><a href="" ng-click="showFieldDetails(Field)">{{Field.attributeName}}</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>-->
+                                    <ul class="custom-list" >
+                                        <li ng-repeat="Field in AllSystemFields | orderBy : 'attributeName'">
+                                           <a href="" ng-click="showFieldDetails(Field,$index)" ng-class="{active : $index === choosenIndex }">{{Field.attributeName}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="reNew()">New</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="(!SysLokuForm.$valid) ?
+                                            SysLokuForm.LookupName.$pristine = SysLokuForm.LookupType.$pristine = SysLokuForm.DataType.$pristine = false
+                                            : save()">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

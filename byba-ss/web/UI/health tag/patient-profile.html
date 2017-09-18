@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Health Tag</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="dist/css/font-awesome.min.css">
+		<!-- Font -->
+		<link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet"> 
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="dist/css/Ionicons.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+		<link rel="stylesheet" href="dist/css/AdminLTE.css">
+		<link rel="shortcut icon" href="dist/img/logo%20slogan2.png">
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>	
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+
+			<!-- Main Header -->
+			<header class="main-header">
+
+				<!-- Logo -->
+				<a href="#" class="logo">
+					<!-- mini logo for sidebar mini 50x50 pixels -->
+					<span class="logo-mini"><img src="dist/img/logo%20slogan2.png"></span>
+					<!-- logo for regular state and mobile devices -->
+					<span class="logo-lg"><img src="dist/img/logo%20slogan.png"></span>
+				</a>
+
+				<!-- Header Navbar -->
+				<nav class="navbar navbar-static-top" role="navigation">
+					<!-- Sidebar toggle button-->
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<!-- Navbar Right Menu -->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<!-- Messages: style can be found in dropdown.less-->
+							<li class="dropdown messages-menu">
+								<!-- Menu toggle button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-envelope-o"></i>
+									<span class="label label-success">4</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">You have 4 messages</li>
+									<li>
+										<!-- inner menu: contains the messages -->
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="dist/img/user8-128x128.jpg" class="img-circle" alt="User Image">
+													</div>
+													<h4> Support Team <small><i class="fa fa-clock-o"></i> 5 mins</small> </h4>
+													<!-- The message -->
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+										<!-- /.menu -->
+									</li>
+									<li class="footer"><a href="#">See All Messages</a></li>
+								</ul>
+							</li>
+							<!-- /.messages-menu -->
+
+							<!-- Notifications Menu -->
+							<li class="dropdown notifications-menu">
+								<!-- Menu toggle button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-bell-o"></i>
+									<span class="label label-warning">10</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">You have 10 notifications</li>
+									<li>
+										<!-- Inner Menu: contains the notifications -->
+										<ul class="menu">
+											<div class="row">
+												<div class="notify small">
+													<img class="col-sm-4" src="dist/img/avatar2.png">
+													<div class="col-sm-8 details">
+														<p>Masr Lab <span>notify you that </span> ahmed's test is ready now you can see it </p>
+														<span><i class="fa fa-clock-o"></i> 2O minute </span>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="notify small">
+													<img class="col-sm-4" src="dist/img/avatar2.png">
+													<div class="col-sm-8 details">
+														<p>Masr Lab <span>notify you that </span> ahmed's test is ready now you can see it </p>
+														<span><i class="fa fa-clock-o"></i> 2O minute </span>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="notify small">
+													<img class="col-sm-4" src="dist/img/avatar2.png">
+													<div class="col-sm-8 details">
+														<p>Masr Lab <span>notify you that </span> ahmed's test is ready now you can see it </p>
+														<span><i class="fa fa-clock-o"></i> 2O minute </span>
+													</div>
+												</div>
+											</div>
+										</ul>
+									</li>
+									<li class="footer"><a href="notifications.html">View all</a></li>
+								</ul>
+							</li>
+							
+							<!-- Tasks Menu -->
+							<li class="dropdown tasks-menu">
+								<!-- Menu Toggle Button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-flag-o"></i>
+									<span class="label label-danger">9</span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="header">You have 9 tasks</li>
+									<li>
+										<!-- Inner menu: contains the tasks -->
+										<ul class="menu">
+											<li>
+												<a href="#">
+													<h3> Design some buttons <small class="pull-right">20%</small> </h3>
+													<div class="progress xs">
+														<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+															<span class="sr-only">20% Complete</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<!-- end task item -->
+										</ul>
+									</li>
+									<li class="footer">
+										<a href="#">View all tasks</a>
+									</li>
+								</ul>
+							</li>
+							
+							<!-- User Account Menu -->
+							<li class="dropdown user user-menu">
+								<!-- Menu Toggle Button -->
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+									<span class="hidden-xs">Ahmed Mohammed</span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- The user image in the menu -->
+									<li class="user-header">
+										<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+										<p> Alexander Pierce - Surgry Doctor <small>Member since Nov. 2012</small> </p>
+									</li>
+									<!-- Menu Body -->
+									<li class="user-body">
+										<div class="row">
+											<div class="col-xs-6 text-center">
+												<a href="#">Followers</a>
+											</div>
+											<div class="col-xs-6 text-center">
+												<a href="#">Settings</a>
+											</div>
+										</div>
+										<!-- /.row -->
+									</li>
+									<!-- Menu Footer-->
+									<li class="user-footer">
+										<div class="pull-left">
+											<a href="index.html" class="btn btn-default btn-flat">Profile</a>
+										</div>
+										<div class="pull-right">
+											<a href="#" class="btn btn-default btn-flat">Sign out</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			
+			
+			<aside class="main-sidebar">
+				
+				<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+					
+					<!-- Sidebar user panel (optional) -->
+					<div class="user-panel">
+						<div class="pull-left image">
+							<img src="dist/img/user8-128x128.jpg" class="img-circle" alt="User Image">
+						</div>
+						<div class="pull-left info">
+							<p>Ahmed Mohammed</p>
+							<!-- Status -->
+							<a href="#">22 Year</a>
+						</div>
+					</div>
+
+					<!-- search form (Optional) -->
+					<h4 class="flow"> <i class="fa fa-rss"></i> 123 Following</h4>
+					<!-- /.search form -->
+
+					<!-- Sidebar Menu -->
+					<ul class="sidebar-menu">
+						<li class="header">HEADER</li>
+						
+						<li class="active"><a href="#"><i class="fa fa-home"></i> <span>PHR</span></a></li>
+						
+						<li><a href=""><i class="fa fa-calendar"></i> <span>Schedule</span></a></li>
+						
+						<li><a href=""><i class="fa fa-globe"></i> <span>Notifications</span></a></li>
+						
+						<li class="treeview">
+							<a href="#"><i class="fa fa-user"></i> <span>Family Members</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu">
+								<li><a href="family-member.html">Ahmed ALi</a></li>
+								<li><a href="add-family-member.html">Add Family Member</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!-- /.sidebar-menu -->
+					
+				</section>
+				<!-- /.sidebar -->
+			</aside>
+			
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<section class="content-header">
+					<h1>Patient Profile</h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li class="active">PHR</li>
+					</ol>
+				</section>
+
+				<!-- Main content -->
+				<section class="content">
+
+					<div class="head">
+						<div class="row">
+							<div class="col-md-2 col-sm-6 col-xs-12">
+								<img src="dist/img/user8-128x128.jpg"/>
+							</div>
+							
+							<div class="col-md-10 col-sm-6 col-xs-12">
+								<h2 class="col-xs-12 header1">Ahmed Mohammed Ali</h2>
+								<p class="col-xs-12"><span>Address :</span> Beverly Hills, Building 6, Office 4, Sheikh Zayed City , Giza</p>
+								<p class="col-xs-12"><span>Phone : </span> 01234568764 </p>
+								<p class="col-xs-12"><span>Age : </span> 22 </p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="data">
+						<div class="box box-danger">
+							
+							<div class="tab-panels">
+													
+								<ul class="tabs">
+									<li rel="panel1" class="active header3">Front Sheet</li>
+									<li rel="panel2" class="header3">Past History</li>
+								</ul>
+								
+								<div id="panel1" class="panel active">
+									<div class="front">
+										<form>
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Name</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="Ahmed mohamed ali" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">National ID</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="09876543221675" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Phone Number</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="01047978376" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Mobile Number</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="01087898978" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Relative Mobile Number</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="01087834678" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Date Of Birth</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="12/12/1977" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Sex</label>
+
+													<div class="col-sm-6">
+														<select class="form-control">
+															<option>Male</option>
+															<option>Female</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Residency</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="15 al-nasr street" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Marital Status</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="Married" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Offspring</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="3" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Chronic Diseases</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="pressure , sugar" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Present Medications</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="concor, Tuscan" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Allergien</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="3" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Surgeries</label>
+
+													<div class="col-sm-6">
+														<input class="form-control" placeholder="heart" type="text">
+													</div>
+												</div>
+											</div>
+											
+											<div class="row">
+												<div class="form-group">
+													<label class="col-sm-3 control-label">Blood Group</label>
+
+													<div class="col-sm-6">
+														<select class="form-control">
+															<option>A+</option>
+															<option>A-</option>
+															<option>B+</option>
+															<option>B-</option>
+															<option>O+</option>
+															<option>O-</option>
+															<option>AB+</option>
+															<option>AB-</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											
+										</form>
+									</div>
+								</div>
+
+								<div id="panel2" class="panel">
+									<div class="row">
+										<div class="col-md-6 visit">
+											<h2>Visits</h2>
+											<div class="row">
+												
+												<div class="col-sm-6">
+													<div class="visit1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="visit-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="visit1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="visit-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="visit1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="visit-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="visit1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="visit-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="visit1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="visit-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="visit1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="visit-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="col-md-6 Invest">
+											<h2>Investigations</h2>
+											
+											<div class="row">
+										
+												<div class="col-sm-6">
+													<div class="invest1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="invest-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-6">
+													<div class="invest1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="invest-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="invest1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="invest-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-6">
+													<div class="invest1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="invest-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="invest1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="invest-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-6">
+													<div class="invest1">
+														<i class="fa fa-heartbeat"></i>
+														<div class="invest-info">
+															<h3>DR: Ahmed Ali</h3>
+															<p>Heart's Doctor</p>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+									
+							</div>
+							
+						</div>
+					</div>
+					
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+			
+
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<div class="pull-right hidden-xs"> Anything you want </div>
+				<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+			</footer>
+
+		</div>
+		<!-- ./wrapper -->
+		
+		<!-- REQUIRED JS SCRIPTS -->
+
+		<!-- jQuery 2.2.3 -->
+		<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="dist/js/app.min.js"></script>
+		<script src="dist/js/script.js"></script>
+
+	</body>
+</html>

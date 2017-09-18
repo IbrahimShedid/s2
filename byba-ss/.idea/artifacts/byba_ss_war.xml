@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="byba-ss:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/byba_ss_war</output-path>
+    <root id="archive" name="byba-ss_war.war">
+      <element id="artifact" artifact-name="byba-ss:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate Validator-5.0.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

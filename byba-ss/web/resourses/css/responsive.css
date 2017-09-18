@@ -1,0 +1,56 @@
+/* Large desktops and laptops */
+
+@media (min-width: 1200px) {
+    .Customize-navbar .navbar-collapse{padding-left: 0;}
+.Customize-navbar .navbar-collapse li:first-child>a{padding-left: 0;margin-left: 0}
+.table {table-layout: fixed;word-wrap: break-word;}
+
+}
+
+/* Landscape tablets and medium desktops */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .logo img{width: 75%}
+    .table {table-layout: fixed;word-wrap: break-word;}
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .Customize-navbar li a{padding: 5px 3px}
+    .logo img{margin: 0;padding-bottom: 5px;width: 75%}
+}
+
+/* Landscape phones and portrait tablets */
+
+@media (max-width: 767px) {
+    .logo {padding-left: 70px}
+    .logo img{margin: 0}
+    .user_profile {margin:10px ;border:  1px solid #d7e6ff}
+    .user_profile .dropdown-menu{min-width: 130px;}
+    .user_profile span:not(.caret):not(.sep) {display: none}
+    .Customize-navbar li:after{display: none;}
+    .Customize-navbar li a{width: 100%;margin: 3px 0}
+    .Customize-navbar li:not(:last-child){border-bottom: 1px solid #fff}
+    .logo{margin-top: 10px}
+    .tabs-customize .nav-tabs>li>a , .tabs-customize .nav-tabs>li.active>a{font-size: 1em;padding: 10px}
+    body{background-image:none !important }
+    .Customize-navbar .navbar-nav .open ul.dropdown-menu{background: #fff;margin: 5px 0;padding: 0}
+    .Customize-navbar .navbar-collapse li ul li:first-child>a{padding: 5px 15px 5px 25px}
+    .clint-header li:last-child {padding-right:10px}
+}
+
+/* Portrait phones and smaller */
+
+@media (max-width: 480px) {
+    .HeaderBG{background: none}
+    .logo {padding: 0}
+    .logo img{margin: 0}
+    .user_profile {margin:10px ;border:  1px solid #d7e6ff}
+    .user_profile .dropdown-menu{min-width: 130px;}
+    .user_profile .text-info ,.user_profile a{font-size: 0.9em}
+    .user_profile span:not(.caret):not(.sep) {display: none}
+    .Customize-navbar li:after{display: none;}
+    .Customize-navbar li a{width: 100%;margin: 3px 0}
+    .Customize-navbar li:not(:last-child){border-bottom: 1px solid #fff}
+    .logo{margin-top: 10px}
+    .navbar.Customize-navbar{border-top: 0}
+}

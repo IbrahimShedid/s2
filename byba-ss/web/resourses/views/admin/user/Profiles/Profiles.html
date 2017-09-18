@@ -1,0 +1,219 @@
+<div ng-include="'resourses/views/admin/user/UserTabNavigation/UserTabNavigation.html'"></div>
+<div role="tabpanel" class="tab-pane " id="profile" ng-controller="ProfileController">
+    <div class="panel panel-default bottom-zero">
+        <form name="profileCntrlForm">
+            <!--{{choosenProfile}}-->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="profileName"><span class="text-danger">*</span> Profile Name </label>
+                                    <input type="text" class="form-control" placeholder="Profile Name" ng-model="choosenProfile.profileName" name="profileNameinput" required="" ng-minlength="2" ng-maxlength="30">
+                                    <div ng-messages="profileCntrlForm.profileNameinput.$error"  role="alert" ng-show="!profileCntrlForm.profileNameinput.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You did not enter a Profile Name</div>
+                                        <div style="color : #a94442" ng-message="minlength">Profile Name is too short</div>
+                                        <div style="color : #a94442" ng-message="maxlength">Profile Name is too long</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="IssuesNo"><span class="text-danger">*</span> Number Of Issues Per Page</label>
+                                    <input type="number" class="form-control" placeholder="list Page Size" ng-model="choosenProfile.listPageSize" name="IssuesNoInput" required="" min="0" >
+                                    <div ng-messages="profileCntrlForm.IssuesNoInput.$error"  role="alert" ng-show="!profileCntrlForm.IssuesNoInput.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You did not enter a list Page Size</div>
+                                    </div>
+                                    <div role="alert" ng-show="!profileCntrlForm.IssuesNoInput.$pristine && !profileCntrlForm.IssuesNoInput.$valid">
+                                        <div style="color : #a94442" >Not Valid Number</div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>                    
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 right-zero">
+                        <div class="panel panel-default gray">
+                            <div class="panel-body mrg-Top10 bottom-zero">
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                        <div class="panel panel-default list-container">
+                                            <div class="panel-body">
+                                                <div class="header-panel">
+                                                    <h5>Displayed fields in issue lists</h5>
+                                                </div>
+                                                <div class="row parent">
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="roleName"><span class="text-danger">*</span>Issue Lists</label>
+                                                            <!--chossen issue       {{choosenIssue}}-->
+                                                            <select name="mySelect"  ng-options="issue.listType for issue in issuelisttype track by issue.listId " ng-model="choosenIssue" 
+                                                                    class="form-control minimal" ng-click="getprofileIssueAttributesList()"></select>
+                                                            <div style="color : #a94442"  ng-hide="profileCntrlForm.mySelect.$pristine || choosenIssue.listId">  You Should Choose Issue </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--{{counter}}-->
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <a class="btn btn-default pull-right hd-btn" href="javascript:void(0);" role="button" ng-click="(!choosenIssue.listId) ? profileCntrlForm.issueTypeName.$pristine = true
+                                                                                    : addNewRow()" ng-show="counter < 6">Add Attribute</a>
+
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered table-striped table-hover mrg-Top13 customer-site-table">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th class="text-center">Attribute Name</th>
+                                                                        <th class="text-center">Sorting</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr ng-repeat="profileIssueAttribute in profileListAttribute| orderBy:'fieldOrder' " ng-init="outerindex = $index">   
+
+                                                                        <td class="text-center">
+<!--                                                                            <select ng-model="profileIssueAttribute.fieldattribute.attributeName" class="form-control minimal">
+                                                                                <option ng-repeat="attributeObj in attributeList" value="{{attributeObj.attributeName}}" 
+                                                                                        ng-click="updateprofileIssueAttribute(profileIssueAttribute, attributeObj, outerindex)">{{attributeObj.attributeName}}</option>
+                                                                            </select>-->
+
+
+                                                                            <select name="SelectproductManager" ng-options="attributeObj as attributeObj.attributeName for attributeObj in attributeList track by attributeObj.attributeId " ng-model="profileIssueAttribute.fieldattribute"
+                                                                                    required="required" class="form-control minimal" ng-change="updateprofileIssueAttribute(profileIssueAttribute, attributeObj, outerindex)"></select>
+
+
+
+
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <a class="" href="javascript:void(0);" role="button" ng-show="!$first" ng-click="moveUp($index, profileIssueAttribute.fieldOrder, profileIssueAttribute)"><i class="fa fa-caret-up"></i></a>
+                                                                            <a class="" href="javascript:void(0);" role="button" ng-show="!$last" ng-click="moveDown($index, profileIssueAttribute.fieldOrder, profileIssueAttribute)"><i class="fa fa-caret-down"></i></a>
+                                                                            <a class="" href="javascript:void(0);" role="button" ng-click="deleteProfileListAttribute(profileListAttribute.indexOf(profileIssueAttribute), profileIssueAttribute.fieldOrder)"><i class="fa fa-trash-o"></i></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <!--{{ profileListAttribute}}-->
+                                                            <hr/>
+                                                            <!--{{profileIssueAttributesTheBigList }}-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4  ">
+                                        <!--{{projectRelatedProfileNotificationList}}-->
+                                        <div class="panel panel-default list-container">
+                                            <div class="panel-body">
+                                                <div class="header-panel">
+                                                    <h5 class="small-text">Default notifications for project</h5>
+                                                </div>
+
+                                                <div class="mrg-Top13">
+                                                    <div class="form-group">
+                                                        <div class="row">                                                      
+                                                            <table>
+                                                                <tr ng-repeat="ProjectNotify in projectRelatedProfileNotificationList">
+                                                                    <td>
+                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                                            <div class="checkbox">
+                                                                                <input type="checkbox" id="CheckNotifyOnUpdate{{$index}}" ng-model="ProjectNotify.notificationValue"  />
+                                                                                <!--ng-change="saveChangesToNotificationValue(ProjectNotify)" />-->                                                                          
+                                                                                <label for="CheckNotifyOnUpdate{{$index}}"> {{ProjectNotify.notification.notificationType}} </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel panel-default list-container">
+                                            <div class="panel-body">
+                                                <div class="header-panel">
+                                                    <h5 class="small-text">Default notifications </h5>
+                                                </div>
+
+                                                <div class="mrg-Top13">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <!--                                                            <table>
+                                                                                                                            <tr ng-repeat="GmNotify in GeneralProfileNotifications">
+                                                                                                                                <td>-->
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-repeat="GmNotify in GeneralProfileNotifications">
+                                                                <div class="checkbox">
+                                                                    <input type="checkbox" id="CheckNotifyOnExternalAssignment{{$index}}" ng-model="GmNotify.notificationValue"   />
+                                                                    <!--ng-change="saveChangesToNotificationValue(GmNotify)" />-->
+                                                                    <label for="CheckNotifyOnExternalAssignment{{$index}}"> {{GmNotify.notification.notificationType}}</label>
+                                                                </div>
+                                                            </div>
+                                                            <!--                                                                    </td>
+                                                                                                                            </tr>
+                                                                                                                        </table>  -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--{{GeneralProfileNotifications}}-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="panel panel-default list-container mrg-Top10">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>Profile List</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+                                    <!--                                    <table>
+                                                                            <tr ng-repeat="ProfileObj in profileList">
+                                                                                <td>
+                                                                                    <ul class="custom-list"  >
+                                                                                        <li><a href="" ng-click="showProfileData(ProfileObj)">{{ProfileObj.profileName}}</a></li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>-->
+
+                                    <ul class="custom-list" >
+                                        <li ng-repeat="ProfileObj in profileList| orderBy : 'profileName'">
+                                            <a href="" ng-click="showProfileData(ProfileObj,$index)"   ng-class="{active : $index === profileIndex }" >{{ProfileObj.profileName}}</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="makeNewProfile();
+                                            profileCntrlForm.profileNameinput.$pristine = profileCntrlForm.IssuesNoInput.$pristine = true;
+                                            profileCntrlForm.IssuesNoInput.$pristine = true;" >New</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" 
+                           ng-click="(!profileCntrlForm.$valid) ? profileCntrlForm.profileNameinput.$pristine = profileCntrlForm.IssuesNoInput.$pristine = false
+                                                       : saveProfile()" >Save</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-show="choosenProfile.profileId" ng-click="deleteProfile()" >Delete</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

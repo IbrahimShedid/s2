@@ -1,0 +1,187 @@
+<div ng-include="'resourses/views/admin/user/UserTabNavigation/UserTabNavigation.html'"></div>
+<div role="tabpanel" class="tab-pane " id="roles" ng-controller="SystemRolesController">
+    <form name="RoleCntrlForm"> 
+        <div class="panel panel-default bottom-zero">
+            <div class="panel-body">
+                <div class="row">
+                    <!--{{chossenRole}}-->
+                    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="roleName"><span class="text-danger">*</span> Role Name </label>
+                                    <input type="text" name="FormRoleName" class="form-control" placeholder="Role Name	" ng-model="chossenRole.roleName"  required="" ng-minlength="2" ng-maxlength="30"  >
+                                    <div ng-messages="RoleCntrlForm.FormRoleName.$error"  role="alert" ng-show="!RoleCntrlForm.FormRoleName.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You did not enter a Role Name</div>
+                                        <div style="color : #a94442" ng-message="minlength">Role Name is too short</div>
+                                        <div style="color : #a94442" ng-message="maxlength">Role Name is too long</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="profile"><span class="text-danger">*</span> Default Profile</label>
+                                    <!--                                    <select ng-model="chossenRole.roleProfile.profileName" name="FormRoleProfile" class="form-control minimal" required="required">
+                                                                            <option ng-repeat="ProfileObj in profileList" value="{{ProfileObj.profileName}}" ng-click="chooseProfile(ProfileObj)" >{{ProfileObj.profileName}}</option>
+                                                                        </select>-->
+                                    <select name="FormRoleProfile" ng-options="ProfileObj as ProfileObj.profileName for ProfileObj in profileList track by ProfileObj.profileId " 
+                                            ng-model="chossenRole.roleProfile" required="required" class="form-control minimal" ></select>
+
+                                    <div ng-messages="RoleCntrlForm.FormRoleProfile.$error" style="color : #a94442" role="alert" ng-show="!RoleCntrlForm.FormRoleProfile.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You Should Pick one </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="panel panel-default gray">
+                            <div class="panel-body mrg-Top10 bottom-zero">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-default list-container">
+                                            <div class="panel-body">
+                                                <div class="header-panel">
+                                                    <h5>Role Members</h5>
+                                                </div>
+                                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >                                                
+                                                    <!--                                                    <table>
+                                                                                                            <tr ng-repeat="member in chossenRole.assignedUsers">
+                                                                                                                <td>
+                                                                                                                    <ul class="custom-list "  >
+                                                                                                                        <li><a href="" >{{member.username}}</a></li>
+                                                                                                                    </ul>
+                                                                                                                </td>                                           
+                                                                                                            </tr>
+                                                                                                        </table> -->
+                                                    <ul class="custom-list" >
+                                                        <li ng-repeat="member in chossenRole.assignedUsers">
+                                                            <a href="" >{{member.username}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 left-zero right-zero">
+                                        <div class="panel panel-default list-container">
+                                            <div class="panel-body">
+                                                <div class="header-panel">
+                                                    <h5>Communication Links</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <a class="btn btn-default pull-right hd-btn mrg-Right10 mrg-Bottom5" data-toggle="modal" data-target="#Links_form" role="button" ng-click="showAvilableRolesToLink()">Add Link(s)</a>
+                                                    <a class="btn btn-default pull-right hd-btn mrg-Right10 mrg-Bottom5" data-toggle="modal" data-target="#Links_form" role="button" ng-click="removeLink()">Remove Link(s)</a>
+                                                </div>
+                                                <div class="col-xs-12 ">
+                                                <div class="mCustomScrollbar2">
+                                                    <!--                                                    <table>
+                                                                                                            <tr ng-repeat="linkedRole in chossenRole.linkerRoles">
+                                                                                                                <td>
+                                                                                                                    <ul class="custom-list "  >
+                                                                                                                        <li><a href="" ng-click="showRoleData(linkedRole)" >{{linkedRole.roleName}}</a></li>
+                                                                                                                    </ul>
+                                                                                                                </td>                                           
+                                                                                                            </tr>
+                                                                                                        </table>-->
+
+                                                    <ul class="custom-list" >
+                                                        <li ng-repeat="linkedRole in chossenRole.linkerRoles">
+                                                            <a href=""  >{{linkedRole.roleName}}</a>
+                                                        </li>
+                                                    </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-default list-container">
+                                            <div class="panel-body">
+                                                <div class="header-panel">
+                                                    <h5>All Role</h5>
+                                                </div>
+                                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+                                                    <!--                                                    <table>
+                                                                                                            <tr ng-repeat="role in SystemRoles">
+                                                                                                                <td>
+                                                                                                                    <ul class="custom-list "  >
+                                                                                                                        <li><a href="" ng-click="showRoleData(role)" >{{role.roleName}}</a></li>
+                                                                                                                    </ul>
+                                                                                                                </td>                                           
+                                                                                                            </tr>
+                                                                                                        </table>-->
+                                                    <ul class="custom-list" >
+                                                        <li ng-repeat="role in SystemRoles| orderBy : 'roleName'">
+                                                            <a href="" ng-click="showRoleData(role, $index)" ng-class="{active : $index === roleIndex }" >{{role.roleName}}</a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" ng-click="makeNewRole();
+                                            RoleCntrlForm.FormRoleName.$pristine = true;
+                                            RoleCntrlForm.FormRoleProfile.$pristine = true">New</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" ng-click="(!RoleCntrlForm.$valid) ?
+                                                    RoleCntrlForm.FormRoleProfile.$pristine = RoleCntrlForm.FormRoleName.$pristine = false
+                                                    : saveNewRole()">Save</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" ng-click="deleteRole()" ng-show="chossenRole.roleId" >Delete</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade" id="Links_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <center>
+                            <h4 class="modal-title" id="myModalLabel">Add Communication Links </h4>
+                        </center>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+                            <!--                            <table>
+                                                            <tr ng-repeat="role in avilableRoles">
+                                                                <td>
+                                                                    <ul class="custom-list "  >
+                                                                        <li><a href="" ng-click="add ? addToLink(role) : removeThisLink($index)" >{{role.roleName}}</a></li>
+                                                                    </ul>
+                                                                </td>                                           
+                                                            </tr>
+                                                        </table>-->
+                            <ul class="custom-list" >
+                                <li ng-repeat="role in avilableRoles">
+                                    <a href="" ng-click="add ? addToLink(role) : removeThisLink($index)" >{{role.roleName}}</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default hd-blue-btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

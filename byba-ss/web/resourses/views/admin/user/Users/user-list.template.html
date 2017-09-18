@@ -1,0 +1,179 @@
+<div ng-include="'resourses/views/admin/user/UserTabNavigation/UserTabNavigation.html'"></div>
+<div role="tabpanel" class="tab-pane active" id="users" ng-controller="UsersController">
+    <form name="UserControlForm" novalidate>
+        <div class="panel panel-default  bottom-zero">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail1"><span class="text-danger">*</span> User Name</label>
+                                <div ng-class="form - group">                                                                                     
+                                    <input type="text" name="FormUserName" class="form-control" placeholder="User Name" ng-model="ShowedUser.username" ng-blur="CheckName()" required ng-minlength="2" ng-maxlength="20">      
+                                    <div ng-show="notvalidname" style="color: red" role="alert">this name is already registered.</div>
+                                    <div ng-messages="UserControlForm.FormUserName.$error" role="alert" ng-show="(!UserControlForm.FormUserName.$pristine)">
+                                        <div style="color : #a94442"  ng-message="required">You did not enter a field</div>
+                                        <div style="color : #a94442"  ng-message="minlength">Your field is too short</div>
+                                        <div style="color : #a94442"  ng-message="maxlength">Your field is too long</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><span class="text-danger">*</span> Full Name</label>
+                                    <input type="text" name="FormUserFullName" class="form-control" placeholder="Full Name" ng-model="ShowedUser.fullname" required ng-minlength="3" ng-maxlength="20">
+                                    <div ng-messages="UserControlForm.FormUserFullName.$error"  role="alert" ng-show="!UserControlForm.FormUserFullName.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You did not enter a field</div>
+                                        <div style="color : #a94442" ng-message="minlength">Your field is too short</div>
+                                        <div style="color : #a94442" ng-message="maxlength">Your field is too long</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="password"><span class="text-danger">*</span> Password</label>
+                                    <input type="password" name="FormUserpassword" class="form-control" placeholder="Password" ng-model="ShowedUser.password" required ng-minlength="6" ng-maxlength="40">
+                                    <div ng-messages="UserControlForm.FormUserpassword.$error"  role="alert" ng-show="!UserControlForm.FormUserpassword.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You did not enter a field</div>
+                                        <div style="color : #a94442" ng-message="minlength">Your field is too short</div>
+                                        <div style="color : #a94442" ng-message="maxlength">Your field is too long</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="role"><span class="text-danger">*</span> Role</label>
+                                    <!--                                    <select ng-model="ShowedUser.defaultRole.roleName" name="FormUserRole" class="form-control minimal" required="required">
+                                                                            <option ng-repeat="role in SystemRoles" value="{{role.roleName}}" ng-click="chooseRole(role)" >{{role.roleName}}</option>
+                                                                        </select>-->
+
+                                    <select name="FormUserRole" ng-options="role as role.roleName for role in SystemRoles track by role.roleId " ng-model="ShowedUser.defaultRole"
+                                            required="required" class="form-control minimal" ng-change="checkIfManagerRequired(ShowedUser.defaultRole)"></select>
+
+                                    <div ng-messages="UserControlForm.FormUserRole.$error"  role="alert" ng-show="!UserControlForm.FormUserRole.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You Should Pick one </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="email">
+                                        <span class="text-danger" >*</span> email</label>
+                                    <input type="email" name="FormUserMail" class="form-control" placeholder="email" ng-model="ShowedUser.email" required="required">
+                                    <div ng-messages="UserControlForm.FormUserMail.$error"  role="alert" ng-show="!UserControlForm.FormUserMail.$pristine" >
+                                        <div style="color : #a94442" ng-message="required">You did not enter a field</div>
+                                        <div style="color : #a94442" ng-message="email">Not valid email!</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="manager"><span class="text-danger" ng-show="isRequried">*</span>Manager</label>
+                                    <!--<input type="text" class="form-control" placeholder="Manager" ng-model="ShowedUser.manager.username">-->
+                                    <!--  <select ng-model="ShowedUser.manager.username" name="FormUserManager" class="form-control minimal" ng-required="isRequried">
+                                             <option ng-repeat="Manager in Managers" value="{{Manager.username}}" ng-click="chooseManager(Manager)" >{{Manager.username}}</option>
+                                   </select>-->
+                                    <select name="FormUserManager" ng-options="manager as manager.username for manager in Managers track by manager.user " ng-model="ShowedUser.manager"
+                                            ng-required="isRequried" class="form-control minimal" ng-change="chooseManager(ShowedUser.manager)"></select>                                          
+                                    <div ng-messages="UserControlForm.FormUserManager.$error"  role="alert" ng-show="!UserControlForm.FormUserManager.$pristine">
+                                        <div style="color : #a94442" ng-message="required">You Should Pick one </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="checkbox mrg-Top25">
+                                        <input type="checkbox" ng-model="ShowedUser.suspended"  id="suspend">
+                                        <label for="suspend" >suspended</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <table class="table table-bordered cust-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Project Name</th>
+                                            <th class="text-center">Role on project</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!--<tr ng-repeat="projectRole in projectRoles">-->
+                                        <tr dir-paginate="projectRole in projectRoles | itemsPerPage: 5" >
+                                            <td>{{projectRole.project.projectTitle}}</td>
+                                            <td>{{projectRole.role.roleName}}</td>
+
+                                        </tr>       
+                                    </tbody>
+                                </table>
+                                 <dir-pagination-controls max-size="5" direction-links="true"  boundary-links="true" > </dir-pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>users</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+                                    <!--{{Users}}-->
+                                    <!--<div class='col-lg-12' ng-show="loading"><h1>Loading <i class='fa fa-cog fa-spin'></i></h1></div>-->
+                                    <!--<table>-->
+                                    <!--<tr ng-repeat="user in Users">-->
+                                    <!--<td>-->
+                                    <!--<div >-->
+                                    <ul class="custom-list" >
+                                        <li ng-repeat="user in Users| orderBy : 'username'">
+                                            <!--<a href="" ng-click="showUser(user)">{{user.username}}</a>-->
+                                            <!--<a href="" ng-click="showUser(user)" ng-class=" {{user.username}} === {{ShowedUser.fullname}} }">{{user.username}}</a>-->
+                                            <a href="" ng-click="showUser(user, $index)" ng-class="{active : $index === userIndex }">{{user.username}}</a>
+
+                                        </li>
+                                    </ul>
+                                    <!--</div>-->
+                                    <!--</td>-->                                           
+                                    <!--</tr>-->
+                                    <!--</table>-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="" role="button" ng-click="CreateNewUser();
+                                            ShowGeneralError = false">New</a>                        
+                        <a class="btn btn-info pull-left mrg-Right13" href="" role="button" ng-click="(UserControlForm.$pristine) || (!UserControlForm.$valid) ?
+                                                    UserControlForm.FormUserName.$pristine =
+                                                    UserControlForm.FormUserFullName.$pristine =
+                                                    UserControlForm.FormUserpassword.$pristine =
+                                                    UserControlForm.FormUserRole.$pristine =
+                                                    UserControlForm.FormUserManager.$pristine =
+                                                    UserControlForm.FormUserMail.$pristine = false : SaveUser(ShowedUser);">Save</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="" role="button" ng-click="(ShowedUser.user === undefined) ? true : DeleteUser(ShowedUser)" ng-hide="ShowedUser.user ?   false :true" >Delete</a>
+                    </div>
+                    <!--                    valid form =    {{UserControlForm.$valid}} <br/>
+                                        touched form =    {{UserControlForm.$touched}} <br/>
+                                        presitine  form =    {{UserControlForm.$pristine}} <br/>
+                                        presitine  name =    {{UserControlForm.FormUserName.$pristine}} <br/>
+                                        dirty  form =    {{UserControlForm.$dirty}}<br/>
+                                        changeds  form =    {{UserControlForm.$changed}}<br/>
+                                        {{ShowedUser}}-->
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

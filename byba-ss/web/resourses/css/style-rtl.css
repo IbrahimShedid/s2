@@ -1,0 +1,39 @@
+/*Genral*/
+*{font-family: 'Segoe UI';font-size: 13px;color: #333333;}
+a{text-decoration: none !important;color: #00274d;font-family: 'Segoe UI';}
+html{min-height: 100%;position: relative;}
+body{direction: ltr;margin-bottom: 40px}
+
+/*Fonts*/
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/SegoeUI_gdi/SegoeUI_gdi.eot');
+    src: url('../fonts/SegoeUI_gdi/SegoeUI_gdi.eot?#iefix') format('embedded-opentype'), url('../fonts/SegoeUI_gdi/SegoeUI_gdi.woff') format('woff'), url('../fonts/SegoeUI_gdi/SegoeUI_gdi.ttf') format('truetype'), url('../fonts/SegoeUI_gdi/SegoeUI_gdi.svg#SegoeUI-Regular') format('svg');
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+000D-2666;
+}
+
+
+/*Header*/
+.HeaderBG {background: url(images/HeaderBG.png);background-position: left;background-repeat: no-repeat;display: inline-block;background-color: #fff;}
+.user_profile {background:#fff;margin-top: 20px;border-radius: 4px;margin-right: 25px;padding: 0 10px;display: inline-block;margin-bottom: 20px; vertical-align: middle}
+.user_profile .text-info{color: #2a74e2;font-weight: 700}
+.user_profile .sep {padding:0 5px;color: #C3C2C2;}
+.logo {display: inline-block;background-color: #fff;margin: 6px;width: 100%;padding-left: 60px;margin-bottom: 0}
+.logo img {margin-left: 70px;}
+.nav.navbar-nav i{font-family: 'helpdesk-font'}
+.navbar.Customize-navbar {background-color: #013f7c;border-top: 3px solid #fff;color: #fff}
+.Customize-navbar a {color: #fff;display: inline-block;padding-bottom: 10px;padding-top: 10px}
+.Customize-navbar li:after {content: '|' ; color: #fff;display: inline-block;}
+.Customize-navbar li a {display: inline-block;padding-top: 10px;padding-bottom: 10px;margin: auto 5px}
+.Customize-navbar li:last-child:after {content: '' ; color: #fff}
+.Customize-navbar li a:before {margin-right: 10px;}
+.Customize-navbar.navbar-nav>li{border: 2px solid #013f7c}
+.Customize-navbar .navbar-nav{border: 2px solid #013f7c}
+.Customize-navbar .nav>li>a:focus,.Customize-navbar .nav>li>a:hover{background-color: #fff;color: #013f7c;}
+
+/*Footer*/
+footer{background: #000;text-align: center;color: #fff;height:34px;line-height:34px;clear:both;position: absolute;bottom: 0;width: 100%;display: inline-block}
+

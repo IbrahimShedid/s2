@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Health Tag</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="dist/css/font-awesome.min.css">
+		<!-- Font -->
+		<link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet"> 
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="dist/css/Ionicons.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+		<link rel="stylesheet" href="dist/css/AdminLTE.css">
+		<link rel="shortcut icon" href="dist/img/logo%20slogan2.png">
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>	
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="search add-clinic">
+			<div class="clinic">
+				<div class="container">
+					<div class="row">
+						
+						<h1>Add Clinic</h1>
+						
+						<form class="col-md-10 col-md-offset-1">
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Doctor Name</label>
+
+									<div class="col-sm-8">
+										<input class="form-control" placeholder="name" type="text">
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Specialty</label>
+									
+									<div class="col-sm-8">
+										<select name="specialty" id="id_specialty" class="form-control bottom10">
+											<option value="">Select Specialty</option>
+											<option value="Allergist/Immunologist">Allergist/Immunologist</option>
+											<option value="Cardiologist">Cardiologist</option>
+											<option value="Chiropractor">Chiropractor</option>
+											<option value="Dermatologist">Dermatologist</option>
+											<option value="Family Practitioner">Family Practitioner</option>
+											<option value="Obstetrician/Gynecologist">Obstetrician/Gynecologist</option>
+											<option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+											<option value="Pediatrician">Pediatrician</option>
+											<option value="Physical Medicine and Rehab Specialist">Physical Medicine and Rehab Specialist</option>
+											<option value="Plastic Surgeon">Plastic Surgeon</option>
+											<option value="Podiatrist">Podiatrist</option>
+											<option value="Psychiatrist">Psychiatrist</option>
+											<option value="Urgent Care">Urgent Care</option>
+											<option value="Other">Other</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Sub Specialty</label>
+
+									<div class="col-sm-8">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Degree</label>
+
+									<div class="col-sm-8">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Governerate</label>
+
+									<div class="col-sm-8">
+										<select class="form-control">
+											<option>--</option>
+											<option class="cairo">القاهرة</option>
+											<option class="alex">الاسكندرية</option>
+											<option class="">الاسماعيلية</option>
+											<option>اسوان</option>
+											<option>اسيوط</option>
+											<option>الاقصر</option>
+											<option>البحر الاحمر</option>
+											<option>البحيرة</option>
+											<option>بنى سويف</option>
+											<option>بورسعيد</option>
+											<option>جنوب سيناء</option>
+											<option>الجيزة</option>
+											<option>الدقهلية</option>
+											<option>دمياط</option>
+											<option>سوهاج</option>
+											<option>السويس</option>
+											<option>الشرقية</option>
+											<option>شمال سيناء</option>
+											<option>الغربية</option>
+											<option>الفيوم</option>
+											<option>القليوبية</option>
+											<option>قنا</option>
+											<option>كفر الشيخ</option>
+											<option>مطروح</option>
+											<option>المنوفية</option>
+											<option>المنيا</option>
+											<option>الوادى الجديد</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Area</label>
+
+									<div class="col-sm-8">
+										<select class="form-control">
+											<option>--</option>
+											<option class="cairo">القاهرة</option>
+											<option class="alex">الاسكندرية</option>
+											<option class="">الاسماعيلية</option>
+											<option>اسوان</option>
+											<option>اسيوط</option>
+											<option>الاقصر</option>
+											<option>البحر الاحمر</option>
+											<option>البحيرة</option>
+											<option>بنى سويف</option>
+											<option>بورسعيد</option>
+											<option>جنوب سيناء</option>
+											<option>الجيزة</option>
+											<option>الدقهلية</option>
+											<option>دمياط</option>
+											<option>سوهاج</option>
+											<option>السويس</option>
+											<option>الشرقية</option>
+											<option>شمال سيناء</option>
+											<option>الغربية</option>
+											<option>الفيوم</option>
+											<option>القليوبية</option>
+											<option>قنا</option>
+											<option>كفر الشيخ</option>
+											<option>مطروح</option>
+											<option>المنوفية</option>
+											<option>المنيا</option>
+											<option>الوادى الجديد</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Phone</label>
+
+									<div class="col-sm-8">
+										<input class="form-control" placeholder="Phone" type="text">
+									</div>
+
+									<span class="col-sm-1"><i class="fa fa-plus-square"></i></span>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Examination Fees</label>
+
+									<div class="col-sm-8">
+										<input class="form-control" placeholder="Examination Fees" type="text">
+									</div>
+								</div>
+							</div>
+							
+							<div class="row" style="text-align:center">
+								<div class="form-group">
+									<label class="col-xs-12 control-label">Appointments</label>
+
+									<div class="appoint">
+										<div class="col-sm-2">
+											<label class="col-sm-2 control-label">Day</label>
+											<select class="form-control">
+												<option value="am">Saturday</option>
+												<option value="pm">Sunday</option>
+												<option value="pm">Monday</option>
+												<option value="pm">Tuesday</option>
+												<option value="pm">wednesday</option>
+												<option value="pm">Thursday</option>
+												<option value="pm">Friday</option>
+											</select>
+										</div>
+
+										<div class="col-sm-4">
+											<div class="row">
+												<label class="col-sm-12 control-label">From</label>
+												<input class="form-control col-xs-6" style="width: 45%;" placeholder="time" type="text">
+												<select class="form-control col-xs-6" style="width: 47%;margin-left: 3%;">
+													<option value="am">AM</option>
+													<option value="pm">PM</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-4">
+											<div class="row">
+												<label class="col-sm-12 control-label">To</label>
+												<input class="form-control col-xs-6" style="width: 45%;" placeholder="time" type="text">
+												<select class="form-control col-xs-6" style="width: 47%;margin-left: 3%;">
+													<option value="am">AM</option>
+													<option value="pm">PM</option>
+												</select>
+											</div>
+										</div>
+
+										<span class="col-sm-2"><i class="fa fa-plus-square"></i></span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12 butn">
+									<button class="btn btn-danger" type="submit">Create Clinic</button>
+								</div>
+							</div>
+						</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- jQuery 2.2.3 -->
+		<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="dist/js/app.min.js"></script>
+
+	</body>
+</html>

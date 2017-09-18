@@ -1,0 +1,65 @@
+<!--<div class="container" >-->
+    <div class="logInWrapper" ng-controller="LoginController">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <!-- header -->
+                <div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="#" class="loginPageLinkLogo"><img src="resourses/images/MergedLayers.png"></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="loginBox">
+                                <div class="login_text">
+                                    <h4 class="text-uppercase">Login</h4>
+                                    <p>Please fill in the fields below to enter the system</p>
+                                </div>
+                                <div>
+                                    <form name="form"  >
+                                         <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                                        <div class="input-group mrg-Top13">
+                                            <input type="text" class="form-control" name="username" placeholder='Username' ng-model="user.username" required>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                            
+                                        </div>
+                                         <div ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</div>
+                                        <div class="input-group mrg-Top13">
+                                            <input type="password" class="form-control" name="password" placeholder='Password' ng-model="user.password" required>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                            
+                                        </div>
+                                         <div ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</div>
+
+                                        <!--<a class="btn btn-default btn-block btn-action hd-btn mrg-Top13" data-toggle="modal" data-target="#Login_as">LOG IN</a>-->
+                                        <button type="submit" class="btn btn-default btn-block btn-action hd-btn mrg-Top13"  ng-click="login()">LOG IN</button>
+
+                                        <div class="form-group SubmitContainer">
+                                            <div class="col-md-12 padding_zero">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="rememberMe" />
+                                                    <label for="rememberMe"> Remember me </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-10 footer_text">
+                <p>&copy; HELP DESK 2016</p>
+                <p>Designed & developed by Asset Technology Group</p>
+                <p> 2016, Orange . All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+<!--</div>-->

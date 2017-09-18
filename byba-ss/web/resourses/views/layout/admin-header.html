@@ -1,0 +1,43 @@
+<!--.........Navbar start...........-->
+<nav class="navbar Customize-navbar" >
+    <div class="container">
+<!--        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>-->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active:ActiveHeaderName==='Users'}">
+                    <a href="#users" class="hdf-man-user"  ng-click="setMainActiveTabCLass('Users','Users')" >Users</a>
+                </li>
+                <li ng-class="{ active : ActiveHeaderName === 'product'}">
+                    <a href="#product" class="hdf-sell-product"  ng-click="setMainActiveTabCLass('product')" >Products</a>
+                </li>
+                <li ng-class="{ active : ActiveHeaderName === 'Projects'}">
+                    <a href="#Projects" class="hdf-suitcase-with-white-details" ng-click="setMainActiveTabCLass('Projects')">Projects</a>
+                </li>
+                <li ng-class="{ active : ActiveHeaderName === 'MediaSpaces'}">
+                    <a href="#MediaSpaces" class="hdf-youtube" ng-click="setMainActiveTabCLass('MediaSpaces')">Media Spaces</a></li>
+                <li ng-class="{ active : ActiveHeaderName === 'systemLookup'}">
+                    <a href="#systemLookup" class="hdf-alarm"  ng-click="setMainActiveTabCLass('systemLookup','systemLookup')">Attributes</a>
+                </li>
+                <li ng-class="{ active : ActiveHeaderName === 'Aging'}">
+                    <a href="#Aging" class="hdf-link-symbol" ng-click="setMainActiveTabCLass('Aging')">Aging</a>
+                </li>
+                <li ng-class="{ active : ActiveHeaderName === 'FeedBacks'}">
+                    <a href="#FeedBacks" class="hdf-spy" ng-click="setMainActiveTabCLass('FeedBacks')">View FeedBacks</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<!--<div class="container">
+<div role="tabpanel" class="tabs-customize">-->
+
+ 
+            <!--.........Navbar End...........-->

@@ -1,0 +1,116 @@
+<!--.........Body container start...........-->
+<div class="container" ng-controller="ProjectsController">
+    <div class="panel panel-default list-container">
+        <form name="projectForm" novalidate>
+            <div class="panel-body">
+                <div class="header-panel">
+                    <h5> Project : <span> {{choosenProject.projectTitle}}</span></h5>
+
+                </div>
+                <!--{{projectForm.fieldAtt0.integer.$error}}-->
+                <div class="row mrg-Top10" >
+                    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9" >
+                        <!--{{ projectAttributesOptionsAndOptionId}}-->
+                        <!--                                           ProjectLookUpOptions   {{ ProjectLookUpOptions}}
+                                                                    <hr>
+                                                                    ProjectFieldsValue {{ProjectFieldsValue }}
+                                                                    <hr>-->
+                                                                    <!--choosenProject     {{choosenProject}}-->
+<!--                                                                    <hr>
+                                                                    projectAttributesOptionsAndOptionId      {{projectAttributesOptionsAndOptionId}}
+                                                                    <hr>
+                                                                    projectAttributesFieldsValue      {{projectAttributesFieldsValue}}-->
+                        <div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <div class="form-group">
+                                    <label for="productName"><span class="text-danger">*</span>Project name</label>
+                                    <input type="text" ng-model="choosenProject.projectTitle" id="input" class="form-control" value="" required="required" pattern="" title="" name="projectName">
+                                    <div ng-messages="projectForm.projectName.$error"  role="alert" ng-show="(!projectForm.projectName.$pristine)">
+                                        <div style="color : #a94442" ng-message="required">Please Enter Valid Project Name.</div>
+                                        <div style="color : #a94442" ng-message="minlength">Version Name is too short </div>
+                                        <div style="color : #a94442"  ng-message="maxlength">Version Name is too long</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="forTheDynamicHtml">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!--{{choosenProject.allProjectMembers}}-->
+                                <a class="btn btn-default pull-right hd-btn" href="javascript:void(0);" role="button" ng-click="addMember()">Add Project Member</a>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover mrg-Top13 customer-site-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">User</th>
+                                                <th class="text-center">Roles</th>
+                                                <th class="text-center">OPS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="member in choosenProject.allProjectMembers">
+                                                <td class="text-center">
+                                                    <select ng-model=" member.user.username" name="" class="form-control minimal" required="required">
+                                                        <option ng-repeat="user in Users" value="{{user.username}}" ng-click="chooseThatUser(member, user)">{{user.username}}</option>
+                                                    </select>
+                                                </td>
+                                                <td class="text-center">
+                                                    <select ng-model=" member.role.roleName" name="" class="form-control minimal" required="required">
+                                                        <option ng-repeat="role in SystemRoles" value="{{role.roleName}}" ng-click="chooseThatrole(member, role)">{{role.roleName}}</option>
+                                                    </select>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="" href="javascript:void(0);" role="button" ng-click="deleteUserRole($index, member)"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>Projects Name</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+
+                                    <ul class="custom-list" >
+                                        <li ng-repeat="Project in allProjects | orderBy : 'projectTitle'">
+                                            <a href="" ng-click="showProjectDetails(Project ,$index)" ng-class="{active : $index === choosenIndex }">{{Project.projectTitle}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="renewProject()">New</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" 
+                           ng-click="(!projectForm.$valid) ? projectForm.projectName.$pristine = false : saveClick()">Save</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="deleteProject()" ng-show="choosenProject.projectId">Delete</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!--.......End Body container..........-->

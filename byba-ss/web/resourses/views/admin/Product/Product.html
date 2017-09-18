@@ -1,0 +1,138 @@
+<!--.........Body container start...........-->
+<div class="container" ng-controller="ProductController">
+    <div class="panel panel-default list-container">
+        <form name="versionCodeForm" >
+            <div class="panel-body">
+                <div class="header-panel">
+                    <h5> Product : <span>{{choosenProduct.productTitle}} </span></h5>
+                </div>
+                <div class="row">
+                    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                        <div class="row mrg-Top25">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="productName"><span class="text-danger">*</span>Name</label>
+                                    <input type="text" name="productTitleInput" class="form-control" required="required"  ng-model="choosenProduct.productTitle" ng-minlength="2" ng-maxlength="30" >
+                                    <div ng-messages="versionCodeForm.productTitleInput.$error" style="color : #a94442" role="alert" ng-show="(!versionCodeForm.productTitleInput.$pristine)">
+                                        <div style="color : #a94442" ng-message="required">Please Enter Valid product Name.</div>
+                                        <div style="color : #a94442" ng-message="minlength">Version Name is too short </div>
+                                        <div style="color : #a94442" ng-message="maxlength">Version Name is too long</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-group ">
+                                    <label for="managerName"><span class="text-danger">*</span>Manager</label>                       
+<!--                                    <select name="SelectproductManager" class="form-control minimal" required="required" ng-model="choosenProduct.productManager.username">
+                                        <option ng-repeat="manager in allManagers" ng-click="pickThatManager(manager)">{{manager.username}}</option>
+                                    </select>-->
+                                    <select name="SelectproductManager" ng-options="manager as manager.username for manager in allManagers track by manager.user " ng-model="choosenProduct.productManager"
+                                             required="required" class="form-control minimal"></select>
+                                            
+                                    <div ng-messages="versionCodeForm.SelectproductManager.$error" style="color : #a94442" role="alert" ng-show="(!versionCodeForm.SelectproductManager.$pristine)">
+                                        <div style="color : #a94442" ng-message="required">Please Choose Product Manager.</div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-default pull-right hd-btn" href="javascript:void(0);" role="button" ng-click="addNewVersion()">Add Version</a>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="table-responsive">
+
+
+                                    <table class="table table-bordered table-striped table-hover mrg-Top13 customer-site-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">OPS</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr ng-repeat="productVersion in choosenProduct.productVersions|  orderBy:versionOrder " ng-hide="!productVersion.versionEnabled" ng-form="repeatForm">
+                                        
+                                            <td class="text-center" >
+                                                <label  ng-hide="productVersion.showLabel">{{productVersion.versionCode}}</label>
+                                                <input name="productVersionName" ng-model="productVersion.versionCode" ng-hide="!productVersion.showLabel" type="text"   class="form-control text-center input-sm" value="{{productVersion.versionCode}}" required ng-minlength="2" ng-maxlength="20" pattern="" title="">                                                   
+                                                <div ng-messages="repeatForm.productVersionName.$error"  role="alert" ng-show="repeatForm.productVersionName.$error && (!submitted || repeatForm.productVersionName.$touched )">
+                                                    <div style="color : #a94442" ng-message="required">Please Enter Version Name.</div>
+                                                    <div style="color : #a94442" ng-message="minlength">Version Name is too short </div>
+                                                    <div style="color : #a94442" ng-message="maxlength">Version Name is too long</div>
+                                                </div>
+
+                                            </td>
+                                            <td class="text-center" >
+                                                <a class="" href="javascript:void(0);" role="button" ng-show="!$first" ng-click="moveUp($index)"><i class="fa fa-caret-up"></i></a>
+                                                <a class="" href="javascript:void(0);" role="button" ng-show="!$last" ng-click="moveDown($index)" ><i class="fa fa-caret-down"></i></a>
+                                                <a class="" href="javascript:void(0);" role="button" ng-hide="productVersion.showLabel" ng-click="edit(productVersion)" ><i class="fa fa-pencil-square-o"></i></a>
+                                                <a class="" href="javascript:void(0);" role="button" ng-hide="!productVersion.showLabel" ng-click="(repeatForm.productVersionName.$pristine || !repeatForm.productVersionName.$valid) ?
+                                                                                repeatForm.productVersionName.$pristine = false : saveVersionChanges(productVersion)" ><i class="fa fa-floppy-o"></i></a>
+                                                <a class="" href="javascript:void(0);" role="button" ng-click="deleteVersion($index, productVersion)"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                     
+                                        </tr>                                        
+                                        </tbody>                                   
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--{{ choosenProduct}}-->
+                        <!--<hr/>-->
+                        <!--{{deletedVersions}}-->
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>Products Name</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+<!--                                    <table>
+                                        <tr ng-repeat="product in allProducts">
+                                            <td>
+                                                <ul class="custom-list"  >
+                                                    <li><a href="" ng-click="showProductVersions(product)">{{product.productTitle}}</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>-->
+                                    
+                                     <ul class="custom-list" >
+                                        <li ng-repeat="product in allProducts | orderBy : 'productTitle'">
+                                            <a href="" ng-click="showProductVersions(product ,$index)" ng-class="{active : $index === choosenIndex }">{{product.productTitle}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="makeNewProduct();
+                                            versionCodeForm.productTitleInput.$pristine = true;
+                                            versionCodeForm.SelectproductManager.$pristine = true">New</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button"  ng-click="(!versionCodeForm.$valid) ?
+                                                    versionCodeForm.SelectproductManager.$pristine = versionCodeForm.productTitleInput.$pristine = submitted =false
+                                                    : saveNewProduct()">Save</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="deleteProduct()" ng-show="choosenProduct.productId">Delete</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!--.......End Body container..........-->

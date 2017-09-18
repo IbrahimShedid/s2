@@ -1,0 +1,112 @@
+<!--.........Body container start...........-->
+<div class="container" ng-controller="MediaSpaceController">
+
+    <div class="panel panel-default list-container mrg-Top10">
+        <form name="mediaSpaceForm" >
+            <div class="panel-body">
+                <div class="header-panel">
+                    <h5> Media Space : <span> {{choosenMediaSpace.mediaName}} </span></h5>
+                </div>
+                <!--{{choosenMediaSpace}}-->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                        <div class="row mrg-Top25">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="productName"><span class="text-danger" >*</span>Name</label>
+                                 
+                                    <input type="text" ng-model="choosenMediaSpace.mediaName" name="mediaName" class="form-control" value="" required="required" pattern="" ng-minlength="2" ng-maxlength="40">
+                                    <div ng-messages="mediaSpaceForm.mediaName.$error"  role="alert" ng-show="(!mediaSpaceForm.mediaName.$pristine)">
+                                        <div style="color : #a94442" ng-message="required">Please Enter Media Space Name.</div>
+                                        <div style="color : #a94442" ng-message="minlength">Name is too short </div>
+                                        <div style="color : #a94442" ng-message="maxlength">Name is too long</div>
+                                    </div>                                
+                                </div>
+                                <div class="form-group ">
+                                    <label for="productName"><span class="text-danger">*</span>Location</label>
+                                    <input type="text" ng-model="choosenMediaSpace.mediaLocation" name="Location" class="form-control" value="" required="required" pattern="" title="" ng-minlength="2" ng-maxlength="40">
+                                    <div ng-messages="mediaSpaceForm.Location.$error"  role="alert" ng-show="(!mediaSpaceForm.Location.$pristine)">
+                                        <div style="color : #a94442" ng-message="required">Please Enter Media Space location.</div>
+                                        <div style="color : #a94442" ng-message="minlength">Name is too short </div>
+                                        <div style="color : #a94442" ng-message="maxlength">Name is too long</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="activeCheckBox" ng-model="choosenMediaSpace.isActive" ng-click="activateThisMediaSpaceandDeactivateOther()"/>
+                                        <label for="activeCheckBox"> Active </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="panel panel-default list-container mrg-Top10">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>Media Space</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+<!--                                    <table>
+                                        <tr ng-repeat="Mspace in allMediaSpaces">
+                                            <td>
+                                                <ul class="custom-list"  >
+                                                    <li><a href="" ng-click="showMediaDetails(Mspace)">{{Mspace.mediaName}}</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>-->
+                                      <ul class="custom-list" >
+                                        <li ng-repeat="Mspace in allMediaSpaces | orderBy : 'mediaName'">
+                                            <a href="" ng-click="showMediaDetails(Mspace,$index)" ng-class="{active : $index === choosenIndex }">{{Mspace.mediaName}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="renewMediaSpaceObject()">New</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="(!mediaSpaceForm.$valid) ?
+                            mediaSpaceForm.Location.$pristine = mediaSpaceForm.mediaName.$pristine = false : saveMediaSpace()">Save</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" data-toggle="modal" data-target="#reopen_issue"
+                           ng-hide="(choosenMediaSpace.mediaId)? false :  true "  >replace</a>
+                        <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-hide="choosenMediaSpace.mediaId ? false :true"  ng-click="deleteMediaSpaceObject()">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="reopen_issue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalLabel">Replace Media Space</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                        <tr ng-repeat="newSpace in allMediaSpaces">
+                            <td>
+                                <ul class="custom-list"  >
+                                    <li><a href="" class="custom-list-link-modal" ng-click="ReplaceMediaSpace(newSpace)">{{newSpace.mediaName}}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+<!--                    <a class="btn btn-default hd-blue-btn" href="javascript:void(0);" role="button">Reopen the issue</a>
+                    <a class="btn btn-danger " href="javascript:void(0);" role="button">No,Not Reopen</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--.......End Body container..........-->

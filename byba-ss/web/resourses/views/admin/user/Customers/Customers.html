@@ -1,0 +1,146 @@
+<div ng-include="'resourses/views/admin/user/UserTabNavigation/UserTabNavigation.html'"></div>
+<div role="tabpanel" class="tab-pane " id="manage_customers" ng-controller="CustomerController">
+    <div class="panel panel-default list-container mrg-Top25">
+        <form name="customerForm" >
+            <div class="panel-body bottom-zero">
+
+
+                <div class="header-panel">
+                    <h5> Customer : <span> {{customer.username}}</span></h5>
+                </div>
+
+                <div class="row mrg-Top25">
+                    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">{{alert.msg}}</div>
+                
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 ">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body bottom-zero">
+                                <div class="header-panel ">
+                                    <h5>Customer Site</h5>
+                                </div>
+                                <div class="col-sm-12">
+                                    <a class="btn btn-default pull-right hd-btn" href="javascript:void(0);" role="button" ng-click="(!customer.user) ? showError() : addSite()">Add Site</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover mrg-Top13 customer-site-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Customer Site
+                                                        </th >
+                                                        <th class="text-center">
+                                                            OPS
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="CustomerSite in CustomersSiteList" ng-form="repeatForm2">
+                                                        <td class="text-center">
+                                                            <label ng-model="CustomerSite.customerSiteName" ng-hide="CustomerSite.showLabel">{{CustomerSite.customerSiteName}}</label>
+                                                            <input ng-model="CustomerSite.customerSiteName" ng-hide="!CustomerSite.showLabel" type="text" name="CustomerSiteName" id="input" class="form-control input-sm text-center" value="{{CustomerSite.customerSiteName}}" required="required" ng-minlength="2" ng-maxlength="20">
+                                                            <div ng-messages="repeatForm2.CustomerSiteName.$error"  role="alert" ng-show=" !repeatForm2.CustomerSiteName.$pristine">
+                                                                <div style="color : #a94442" ng-message="required">Please Enter Valid Version Name.</div>
+                                                                <div style="color : #a94442" ng-message="minlength">Version Name is too short </div>
+                                                                <div style="color : #a94442" ng-message="maxlength">Version Name is too long</div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a class="" href="javascript:void(0);" role="button" ng-hide="CustomerSite.showLabel" ng-click="edit(CustomerSite)"><i class="fa fa-pencil-square-o"></i></a>
+                                                            <a class="" href="javascript:void(0);" role="button" ng-hide="!CustomerSite.showLabel" ng-click="(repeatForm2.CustomerSiteName.$pristine || !repeatForm2.CustomerSiteName.$valid) ?
+                                                                                            repeatForm2.CustomerSiteName.$pristine = false : SaveCustomerSiteData(CustomerSite)"><i class="fa fa-floppy-o"></i></a>
+                                                            <a class="" href="javascript:void(0);" role="button" ng-click="deleteCustomerSite($index)"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body bottom-zero">
+                                <div class="header-panel">
+                                    <h5>Customer Contact</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <a class="btn btn-default pull-right hd-btn" href="javascript:void(0);" role="button" ng-click="(!customer.user) ? showError() :addContact()">Add Contact</a>
+
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover mrg-Top13">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Customer Contact
+                                                        </th>
+                                                        <th class="text-center">
+                                                            OPS
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tr ng-repeat="CustomerContact in CustomersContactList  " ng-form="repeatForm">
+                                                    <td class="text-center col-md-8">
+                                                        <label ng-model="CustomerContact.contactName" ng-hide="CustomerContact.showLabel">{{CustomerContact.contactName}}</label>
+                                                        <input ng-model="CustomerContact.contactName" ng-hide="!CustomerContact.showLabel" type="text" name="CustomerContactName" id="input" class="form-control input-sm text-center" value="{{CustomerContact.contactName}}" required="required" ng-minlength="2" ng-maxlength="20">
+                                                        <div ng-messages="repeatForm.CustomerContactName.$error"  role="alert" ng-show=" !repeatForm.CustomerContactName.$pristine">
+                                                            <div style="color : #a94442" ng-message="required">Please Enter Valid Version Name.</div>
+                                                            <div style="color : #a94442" ng-message="minlength">Version Name is too short </div>
+                                                            <div style="color : #a94442" ng-message="maxlength">Version Name is too long</div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center col-md-8">
+                                                        <a class="" href="javascript:void(0);" role="button" ng-hide="CustomerContact.showLabel" ng-click="edit(CustomerContact)"><i class="fa fa-pencil-square-o"></i></a>
+                                                        <a class="" href="javascript:void(0);" role="button" ng-hide="!CustomerContact.showLabel" ng-click="(repeatForm.CustomerContactName.$pristine || !repeatForm.CustomerContactName.$valid) ?
+                                                                                        repeatForm.CustomerContactName.$pristine = false : SaveCustomerContactData(CustomerContact)" ><i class="fa fa-floppy-o"></i></a>
+                                                        <a class="" href="javascript:void(0);" role="button" ng-click="deleteCustomerContact($index)"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="panel panel-default list-container">
+                            <div class="panel-body">
+                                <div class="header-panel">
+                                    <h5>Customers List</h5>
+                                </div>
+                                <div ng-scrollbars ng-scrollbars-config="$root.scrollbarConfig" >
+                                    <ul class="custom-list" >
+                                        <li ng-repeat="user in CustomersList | orderBy : 'username'">
+                                            <a href="" ng-click="showCustomerData(user,$index)"  ng-class="{active : $index === choosenIndex }" >{{user.username}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <a class="btn btn-info pull-left mrg-Right13" href="javascript:void(0);" role="button" ng-click="NewCustomer()">New</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
